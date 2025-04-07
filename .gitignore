@@ -1,0 +1,10 @@
+.qodo
+*.logs
+
+#node modules
+frontend/node_modules/
+backend/node_modules/
+
+#envoirnment variable
+frontend/.env
+backend/.env

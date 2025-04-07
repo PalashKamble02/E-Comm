@@ -1,0 +1,34 @@
+.typing-loop {
+    overflow: hidden;
+    display: inline-block;           /* Needed for multiline */
+    white-space: pre-line;           /* Allows line breaks */
+    border-right: 2px solid white;   /* Typing cursor */
+    width: 0;
+    animation: typing 4s steps(20, end) infinite alternate,
+               blink 0.7s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 10ch; } /* Adjust based on total visible characters */
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent }
+  }
+  .typing-loop-delay {
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    border-right: 2px solid white;
+    width: 0;
+    animation: typingParagraph 6s steps(50, end) infinite alternate,
+               blink 0.7s step-end infinite;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes typingParagraph {
+    from { width: 0 }
+    to { width: 50ch; } /* Adjust based on paragraph length */
+  }
+    
