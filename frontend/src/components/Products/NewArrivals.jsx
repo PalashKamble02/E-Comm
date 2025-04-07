@@ -16,9 +16,8 @@ const NewArrivals = () => {
   useEffect(() => {
     const fetchNewArrivals = async () => {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`
-        );
+        const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`);
+
         console.log("🟡 New Arrivals API response:", response.data);
         setNewArrivals(response.data);
       } catch (error) {
