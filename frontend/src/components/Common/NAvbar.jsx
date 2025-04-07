@@ -28,7 +28,7 @@ const NAvbar = () => {
     {/* Left - Logo */}
     <div>
         <Link to="/" className='text-2xl font-medium'>
-        Rabbit</Link>
+        E-Comm</Link>
     </div>
    {/* Center - navigation Links */}
    <div className="hidden md:flex space-x-6">
