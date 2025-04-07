@@ -13,20 +13,21 @@ const NewArrivals = () => {
 
   const [newArrivals, setNewArrivals] = useState([]);
 
-  useEffect(() =>{
-    const fetchNewArrivals = async () =>{
-        try {
-            const response = await axios.get(
-                `${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`
-            )
-            setNewArrivals(response.data);
-        } catch (error) {
-            console.error(error);
-            
-        }
+  useEffect(() => {
+    const fetchNewArrivals = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`
+        );
+        console.log("🟡 New Arrivals API response:", response.data);
+        setNewArrivals(response.data);
+      } catch (error) {
+        console.error("❌ Error fetching new arrivals:", error);
+      }
     };
     fetchNewArrivals();
-  },[])
+  }, []);
+  
 
     const HandleMouseDown = (e) =>{
         setIsDragging(true);
@@ -108,25 +109,24 @@ const NewArrivals = () => {
     onMouseUp={handleMouseUpOrLeave}
     onMouseLeave={handleMouseUpOrLeave}
     >
-        {newArrivals.map((product)=>(
-         <div key={product._id} 
-         className='min-w-[100%] sm:min-w-[30%] lg:min-w-[30%] relative'
-         >
-            <img 
-            src={product.images[0]?.url}
-            alt={product.images[0]?.altText || product.name}
-            draggable={false}
-            className='w-full h-[400px]  object-cover rounded-lg'
-            />
-           <div className='absolute bottom-0 left-0 right-0 bg-gray/50 backdrop-blur-md text-white p-4 rounded-b-lg'>
-            <Link to={`/product/${product._id}`}
-            className='block'>
-                <h4 className='font-medium'>{product.name}</h4>
-                <p className='mt-1'>${product.price}</p>
-            </Link>
-           </div>
-         </div>
-        ))}
+        {Array.isArray(newArrivals) && newArrivals.map((product) => (
+  <div key={product._id} className='min-w-[100%] sm:min-w-[30%] lg:min-w-[30%] relative'>
+    <img 
+      src={product.images[0]?.url}
+      alt={product.images[0]?.altText || product.name}
+      draggable={false}
+      className='w-full h-[400px]  object-cover rounded-lg'
+    />
+    <div className='absolute bottom-0 left-0 right-0 bg-gray/50 backdrop-blur-md text-white p-4 rounded-b-lg'>
+      <Link to={`/product/${product._id}`} className='block'>
+        <h4 className='font-medium'>{product.name}</h4>
+        <p className='mt-1'>${product.price}</p>
+      </Link>
+    </div>
+  </div>
+))}
+
+     
     </div>
    </section>
   )
