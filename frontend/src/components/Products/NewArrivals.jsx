@@ -17,15 +17,16 @@ const NewArrivals = () => {
     const fetchNewArrivals = async () => {
       try {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`);
-
-        console.log("🟡 New Arrivals API response:", response.data);
-        const data = await response.json();
+        const data = await response.json(); // Parse the JSON data
+        console.log("🟡 New Arrivals API response:", data);
+        setNewArrivals(data);
       } catch (error) {
         console.error("❌ Error fetching new arrivals:", error);
       }
     };
     fetchNewArrivals();
   }, []);
+  
   
 
     const HandleMouseDown = (e) =>{
