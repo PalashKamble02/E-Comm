@@ -44,7 +44,9 @@ const Home = () => {
   return (
     <div>
     <Hero/>
+    
     <GenderCollectionSection/>
+   
     <NewArrivals/>
 
     {/* Best Seller */}

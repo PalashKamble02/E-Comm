@@ -22,7 +22,7 @@ const GenderCollectionSection = () => {
   
   return (
     <section className='py-16 px-4 lg:px-0'>
-        <div className='container mx-auto flex flex-col md:flex-row gap-8 items-center justify-center pl-27 '>
+        <div className='container mx-auto flex flex-col md:flex-row gap-8 items-center justify-start px-4 lg:pl-28'>
             {/* womens collection */}
             <div className='relative flex-1 ' data-aos="flip-left">
                <img 
@@ -66,4 +66,4 @@ const GenderCollectionSection = () => {
   )
 }
 
-export default GenderCollectionSection
+export default GenderCollectionSection 
