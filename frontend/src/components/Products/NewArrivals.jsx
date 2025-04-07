@@ -19,7 +19,7 @@ const NewArrivals = () => {
         const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/products/new-arrivals`);
 
         console.log("🟡 New Arrivals API response:", response.data);
-        setNewArrivals(response.data);
+        const data = await response.json();
       } catch (error) {
         console.error("❌ Error fetching new arrivals:", error);
       }
